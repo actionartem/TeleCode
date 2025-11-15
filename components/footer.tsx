@@ -86,14 +86,6 @@ export function Footer() {
                   Пакеты
                 </button>
               </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('faq')}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  FAQ
-                </button>
-              </li>
             </ul>
           </div>
 
