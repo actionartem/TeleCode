@@ -31,7 +31,6 @@ export function Header() {
     { label: 'Кейсы', id: 'cases' },
     { label: 'Процесс', id: 'process' },
     { label: 'Пакеты', id: 'packages' },
-    { label: 'Технологии', id: 'tech' },
     { label: 'FAQ', id: 'faq' },
     { label: 'Контакты', id: 'contact' },
   ]

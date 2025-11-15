@@ -7,7 +7,6 @@ import { Cases } from '@/components/cases'
 import { Process } from '@/components/process'
 import { Packages } from '@/components/packages'
 import { About } from '@/components/about'
-import { TechStack } from '@/components/tech-stack'
 import { FAQ } from '@/components/faq'
 import { Contact } from '@/components/contact'
 import { Footer } from '@/components/footer'
@@ -25,7 +24,6 @@ export default function Home() {
         <Process />
         <Packages />
         <About />
-        <TechStack />
         <FAQ />
         <Contact />
       </main>
