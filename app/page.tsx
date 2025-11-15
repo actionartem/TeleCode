@@ -6,8 +6,6 @@ import { InteractiveSelector } from '@/components/interactive-selector'
 import { Cases } from '@/components/cases'
 import { Process } from '@/components/process'
 import { Packages } from '@/components/packages'
-import { About } from '@/components/about'
-import { FAQ } from '@/components/faq'
 import { Contact } from '@/components/contact'
 import { Footer } from '@/components/footer'
 
@@ -23,8 +21,6 @@ export default function Home() {
         <Cases />
         <Process />
         <Packages />
-        <About />
-        <FAQ />
         <Contact />
       </main>
       <Footer />
