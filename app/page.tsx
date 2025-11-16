@@ -1,6 +1,5 @@
 import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
-import { Services } from '@/components/services'
 import { WhyUs } from '@/components/why-us'
 import { InteractiveSelector } from '@/components/interactive-selector'
 import { Cases } from '@/components/cases'
@@ -15,7 +14,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Services />
         <WhyUs />
         <InteractiveSelector />
         <Cases />
