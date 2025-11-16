@@ -14,7 +14,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <h3 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
-              TeleCode
+              TgCode
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Студия разработки Telegram-решений, сайтов и веб-приложений
@@ -123,7 +123,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} TeleCode Studio. Все права защищены.</p>
+          <p>© {new Date().getFullYear()} TgCode Studio. Все права защищены.</p>
         </div>
       </div>
     </footer>
