@@ -206,7 +206,7 @@ export function Contact() {
                 <CardContent className="pt-6">
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     <span className="font-medium text-foreground">Быстрый старт: </span>
-                    Напишите нам в Telegram — обычно отвечаем в течение часа в рабочее время
+                    Напишите нам в Telegram и мы очень быстро вам ответим!
                   </p>
                 </CardContent>
               </Card>
