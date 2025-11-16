@@ -6,7 +6,7 @@ const advantages = [
   {
     icon: Target,
     title: 'Фокус на Telegram',
-    description: 'Специализируемся на mini apps и ботах — знаем все тонкости платформы',
+    description: 'Специализируемся на mini apps и ботах - знаем все тонкости платформы',
   },
   {
     icon: Link2,
