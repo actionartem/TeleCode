@@ -36,7 +36,7 @@ export function Hero() {
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance animate-fade-in animation-delay-400">
             Разрабатываем ботов, мини-приложения, сайты и веб-сервисы, которые приятно использовать.
-            Работаем с частными клиентами и компаниями — от быстрых MVP до сложных интеграций.
+            Работаем с частными клиентами и компаниями - от быстрых MVP до сложных интеграций.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in animation-delay-600">
