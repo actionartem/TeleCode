@@ -57,27 +57,6 @@ export function Hero() {
             </Button>
           </div>
 
-          {/* Animated interface mockups */}
-          <div className="relative mt-16 animate-fade-in animation-delay-800">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-              {[
-                { title: 'Чат-бот', subtitle: '24/7 поддержка', gradient: 'from-blue-500 to-cyan-500' },
-                { title: 'Mini App', subtitle: 'Каталог товаров', gradient: 'from-purple-500 to-pink-500' },
-                { title: 'Dashboard', subtitle: 'Аналитика', gradient: 'from-orange-500 to-red-500' },
-                { title: 'CRM', subtitle: 'Интеграции', gradient: 'from-green-500 to-emerald-500' },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all hover:scale-105 cursor-pointer"
-                  style={{ animationDelay: `${i * 100}ms` }}
-                >
-                  <div className={`w-full h-20 rounded-lg bg-gradient-to-br ${item.gradient} opacity-20 mb-3`} />
-                  <h3 className="font-semibold text-sm">{item.title}</h3>
-                  <p className="text-xs text-muted-foreground">{item.subtitle}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
