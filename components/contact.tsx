@@ -19,54 +19,25 @@ export function Contact() {
     preferTelegram: false,
   })
   const [submitted, setSubmitted] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
-
-    try {
-      const description = formData.preferTelegram
-        ? `${formData.message}\nПредпочитает общение в Telegram`
-        : formData.message
-
-      const response = await fetch('https://ibn-lab.ru/send-notification', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          telegram: formData.telegram,
-          description,
-        }),
+    // Simulate form submission
+    console.log('Form submitted:', formData)
+    setSubmitted(true)
+    
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setFormData({
+        name: '',
+        email: '',
+        telegram: '',
+        phone: '',
+        message: '',
+        preferTelegram: false,
       })
-
-      if (!response.ok) {
-        throw new Error('Failed to send notification')
-      }
-
-      setSubmitted(true)
-
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          telegram: '',
-          phone: '',
-          message: '',
-          preferTelegram: false,
-        })
-        setSubmitted(false)
-      }, 3000)
-    } catch (error) {
-      console.error('Ошибка при отправке заявки:', error)
-    } finally {
-      setIsSubmitting(false)
-    }
+      setSubmitted(false)
+    }, 3000)
   }
 
   const handleChange = (
@@ -186,12 +157,7 @@ export function Contact() {
                       </label>
                     </div>
 
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="w-full group"
-                      disabled={isSubmitting}
-                    >
+                    <Button type="submit" size="lg" className="w-full group">
                       Отправить заявку
                       <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
