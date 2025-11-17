@@ -15,29 +15,58 @@ export function Contact() {
     email: '',
     telegram: '',
     phone: '',
-    message: '',
+    description: '',
     preferTelegram: false,
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Simulate form submission
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        telegram: '',
-        phone: '',
-        message: '',
-        preferTelegram: false,
+    setIsSubmitting(true)
+
+    try {
+      const description = formData.preferTelegram
+        ? `${formData.description}\n\nПредпочитает общаться в Telegram`
+        : formData.description
+
+      const response = await fetch('https://ibn-lab.ru/send-notification-2', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          telegram: formData.telegram,
+          description,
+        }),
       })
-      setSubmitted(false)
-    }, 3000)
+
+      if (!response.ok) {
+        throw new Error('Не удалось отправить заявку. Попробуйте снова.')
+      }
+
+      setSubmitted(true)
+
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          telegram: '',
+          phone: '',
+          description: '',
+          preferTelegram: false,
+        })
+        setSubmitted(false)
+      }, 3000)
+    } catch (error) {
+      console.error(error)
+      alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (
@@ -129,11 +158,11 @@ export function Contact() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message">Расскажите, что вам нужно *</Label>
+                      <Label htmlFor="description">Расскажите, что вам нужно *</Label>
                       <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
+                        id="description"
+                        name="description"
+                        value={formData.description}
                         onChange={handleChange}
                         required
                         placeholder="Опишите вашу задачу, идею или проект..."
@@ -157,8 +186,13 @@ export function Contact() {
                       </label>
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full group">
-                      Отправить заявку
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full group"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
                       <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </form>
