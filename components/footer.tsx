@@ -94,15 +94,15 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="mailto:hello@telecode.studio"
+                  href="mailto:support@tg-code.ru"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  hello@telecode.studio
+                  support@tg-code.ru
                 </a>
               </li>
               <li>
                 <a
-                  href="https://t.me/telecode_studio"
+                  href="https://t.me/TgCodeStudio"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
@@ -112,10 +112,10 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+79991234567"
+                  href="tel:+79933598322"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  +7 (999) 123-45-67
+                  +7 (993) 359-83-22
                 </a>
               </li>
             </ul>
