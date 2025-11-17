@@ -8,9 +8,9 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'TgCode Studio — Разработка Telegram mini apps, ботов и веб-приложений',
+  title: 'TgCode Studio-Разработка Telegram mini apps, ботов и веб-приложений',
   description: 'Создаем умных Telegram-ботов и mini apps, которые приятно использовать каждый день. Разработка сайтов, веб-приложений и интеграций.',
-  generator: 'v0.app',
+  generator: 'artivtw',
   icons: {
     icon: [
       {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         type: 'image/png',
       },
       {
-        url: '/tgc-logo.svg',
+        url: '/tc-logo.svg',
         type: 'image/svg+xml',
       },
     ],
