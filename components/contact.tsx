@@ -20,11 +20,28 @@ export function Contact() {
   })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Simulate form submission
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
+
+    try {
+      await fetch('https://ibn-lab.ru/send-notification', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          telegram: formData.telegram,
+          description: formData.message,
+        }),
+      })
+
+      setSubmitted(true)
+    } catch (error) {
+      console.error('Ошибка при отправке формы:', error)
+    }
     
     // Reset form after 3 seconds
     setTimeout(() => {
@@ -85,7 +102,7 @@ export function Contact() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        required
+                        // Allow any input values, no validation enforced
                         placeholder="Как к вам обращаться?"
                       />
                     </div>
@@ -96,10 +113,9 @@ export function Contact() {
                         <Input
                           id="email"
                           name="email"
-                          type="email"
+                          type="text"
                           value={formData.email}
                           onChange={handleChange}
-                          required
                           placeholder="your@email.com"
                         />
                       </div>
@@ -121,7 +137,7 @@ export function Contact() {
                       <Input
                         id="phone"
                         name="phone"
-                        type="tel"
+                        type="text"
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+7 (999) 123-45-67"
@@ -135,7 +151,6 @@ export function Contact() {
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        required
                         placeholder="Опишите вашу задачу, идею или проект..."
                         rows={6}
                       />
