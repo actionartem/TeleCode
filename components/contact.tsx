@@ -19,57 +19,25 @@ export function Contact() {
     preferTelegram: false,
   })
   const [submitted, setSubmitted] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitError, setSubmitError] = useState('')
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitError('')
-
-    const payload = {
-      name: formData.name,
-      phone: formData.phone,
-      email: formData.email,
-      telegram: formData.telegram,
-      description: `${formData.message}${
-        formData.preferTelegram ? ' (Предпочитает общаться в Telegram)' : ''
-      }`,
-    }
-
-    try {
-      const response = await fetch('https://ibn-lab.ru/send-notification-2', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        },
-        body: new URLSearchParams(payload).toString(),
+    // Simulate form submission
+    console.log('Form submitted:', formData)
+    setSubmitted(true)
+    
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setFormData({
+        name: '',
+        email: '',
+        telegram: '',
+        phone: '',
+        message: '',
+        preferTelegram: false,
       })
-
-      if (!response.ok) {
-        throw new Error('Не удалось отправить заявку')
-      }
-
-      setSubmitted(true)
-
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          telegram: '',
-          phone: '',
-          message: '',
-          preferTelegram: false,
-        })
-        setSubmitted(false)
-      }, 3000)
-    } catch (error) {
-      console.error(error)
-      setSubmitError('Произошла ошибка при отправке. Попробуйте еще раз.')
-    } finally {
-      setIsSubmitting(false)
-    }
+      setSubmitted(false)
+    }, 3000)
   }
 
   const handleChange = (
@@ -189,16 +157,7 @@ export function Contact() {
                       </label>
                     </div>
 
-                    {submitError && (
-                      <p className="text-sm text-destructive">{submitError}</p>
-                    )}
-
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="w-full group"
-                      disabled={isSubmitting}
-                    >
+                    <Button type="submit" size="lg" className="w-full group">
                       Отправить заявку
                       <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
