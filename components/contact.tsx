@@ -175,27 +175,27 @@ export function Contact() {
                     <div>
                       <p className="text-muted-foreground mb-1">Email</p>
                       <a
-                        href="mailto:hello@telecode.studio"
+                        href="mailto:support@tg-code.ru"
                         className="text-primary hover:underline"
                       >
-                        hello@telecode.studio
+                        support@tg-code.ru
                       </a>
                     </div>
                     <div>
                       <p className="text-muted-foreground mb-1">Telegram</p>
                       <a
-                        href="https://t.me/telecode_studio"
+                        href="https://t.me/TgCodeStudio"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary hover:underline"
                       >
-                        @telecode_studio
+                        @TgCodeStudio
                       </a>
                     </div>
                     <div>
                       <p className="text-muted-foreground mb-1">Телефон</p>
-                      <a href="tel:+79991234567" className="text-primary hover:underline">
-                        +7 (999) 123-45-67
+                      <a href="tel:+79933598322" className="text-primary hover:underline">
+                        +7 (993) 359-83-22
                       </a>
                     </div>
                   </div>
